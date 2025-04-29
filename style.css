@@ -4,14 +4,17 @@
     --bg-url-desktop: url('./img/bg-desktop-light.jpg');
     --dark-bg: #212529;
   }
+* {
+    box-sizing: border-box;
+}
   
-  html, body {
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
-  }
+}
   
   body {
     display: flex;
@@ -34,7 +37,7 @@
   
   .container {
     width: 100%;
-    max-width: 400px;
+    max-width: 588px;
     margin: 80px auto 0;
     padding: 20px;
     border-radius: 20px;
@@ -137,7 +140,7 @@
     font-size: 0.9rem;
     color: #fff;
     backdrop-filter: blur(4px);
-    margin-top: 40px;
+    margin-top: 20px;
     border: none;
     box-shadow: none;
   }
