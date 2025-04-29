@@ -1,6 +1,8 @@
 :root {
     --text-color: white;
+    
     --bg-url: url(./assets/bg-mobile.jpg);
+    --dark-bg: #212529;
 }
 
 body {
@@ -17,8 +19,33 @@ body {
     padding: 20px;
     color: #eaeaea;
   }
-
   .container {
+    width: 100%;
+    max-width: 588px;
+    margin: 56px auto 0px;
+    padding: 0 24px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.1);
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    z-index: 1;
+    position: relative;
+    color: #838181;
+    background: #7c7c7c;
+  } 
+  .container {
+      position: relative; /* garante que fique acima do fundo */
+      z-index: 1; /* fica na frente */
+      max-width: 500px;
+      margin: 80px auto;
+      background: rgb(252, 252, 252);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+ /* .container {
     background: #1a1a1a;
     padding: 30px 20px;
     border-radius: 20px;
@@ -29,14 +56,14 @@ body {
     z-index: 1;
     position: relative;
     color: #f0f0f0;
-  }
+  } */
 
   h1 {
-    color: #ff69b4;
+    color: #ff0080;
   }
 
   p {
-    color: #ccc;
+    color: #000000;
   }
 
 .birthday-photo {
@@ -51,20 +78,20 @@ body {
 }
 
 button {
-    background: #ff69b4;
+    background-color: #8f4599;
+    color: rgb(255, 255, 255);
+    padding: 12px 24px;
     border: none;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
     cursor: pointer;
-    font-size: 16px;
     margin-top: 20px;
-    transition: background 0.3s;
-  }
+    border-radius: 8px;
+    font-size: 16px;
+    max-width: 100%;
+}
 
-  button:hover {
-    background: #e91e63;
-  }
+  button:button:hover {
+    background-color: #45a049;
+}
 
 
 #particles-js {
@@ -76,17 +103,6 @@ button {
     left: 0;
 }
 
-.container {
-    position: relative; /* garante que fique acima do fundo */
-    z-index: 1; /* fica na frente */
-    max-width: 500px;
-    margin: 80px auto;
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  }
   .photo-gallery {
     display: flex;
     gap: 10px;
@@ -100,7 +116,7 @@ button {
     height: 100px;
     object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 0, 128, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
@@ -108,12 +124,25 @@ button {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
   }
-  footer {
-    padding: 24px 0;
-    text-align: end;
-    font-size: 14px;
-  }
+
     @media (min-width: 700px) {
     :root {
       --bg-url: url(/img/bg-desktop-light.jpg);
     }}
+    .message-box {
+        width: 90%;
+        max-width: 500px;
+        margin: 30px auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* sombra leve */
+        display: none;
+        text-align: center;
+    }
+    #revealedMessage {
+        font-size: 18px;
+        color: #222;
+        line-height: 1.5;
+        word-break: break-word;
+    }
