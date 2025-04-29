@@ -1,39 +1,42 @@
 :root {
     --text-color: white;
-    
-    --bg-url: url(./img/bg-mobile-light.jpg);
+    --bg-url: url('./img/bg-mobile-light.jpg');
+    --bg-url-desktop: url('./img/bg-desktop-light.jpg');
     --dark-bg: #212529;
-}
-html, body {
-    height: 100%;  /* Garantir que a página ocupe toda a altura da tela */
-    margin: 0;  /* Remover margens padrão do navegador */
-    padding: 0;  /* Remover padding */
-    overflow-x: hidden;    /* evita scroll horizontal indesejado */
-    overflow-y: auto;
   }
-
-body {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;  /* Organiza o conteúdo na vertical */
-    min-height: 100%;  /* Garante que o conteúdo ocupe pelo menos a altura da tela */
+  
+  html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: 'Segoe UI', sans-serif;
     background: var(--bg-url) top center / cover no-repeat;
-    min-height: 100vh;
-    overflow: hidden;
-    display: flex;
+    color: #eaeaea;
+    padding: 20px;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    color: #eaeaea;
   }
+  
+  /* TROCA DE BACKGROUND NO DESKTOP */
+  @media (min-width: 700px) {
+    body {
+      background: var(--bg-url-desktop) top center / cover no-repeat;
+    }
+  }
+  
   .container {
-    width: 400px;  /* Garantir que a largura ocupe 100% da tela */
-    max-width: 90%; /* Limite máximo de 90% para evitar que ultrapasse nas telas pequenas */
+    width: 100%;
+    max-width: 400px;
     margin: 80px auto 0;
-    padding: 20px;  /* Menos padding para dispositivos pequenos */
+    padding: 20px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -41,35 +44,33 @@ body {
     position: relative;
     color: #838181;
     background-color: rgba(255, 255, 255, 0.85);
-    word-wrap: break-word;  /* Quebra palavras longas para não cortar o texto */
-    
+    word-wrap: break-word;
   }
-  h1, p, button {
-    word-wrap: break-word;  /* Assegura que o texto não estoure nas telas menores */
-  }
-
-h1 {
+  
+  h1 {
     color: #ff0080;
   }
-
   p {
-    color: #000000;
+    color: #000;
   }
-
-.birthday-photo {
+  h1, p, button {
+    word-wrap: break-word;
+  }
+  
+  .birthday-photo {
     width: 100%;
     border-radius: 10px;
     margin: 20px 0;
-}
-
-.message {
+  }
+  
+  .message {
     margin: 20px 0;
     font-style: italic;
-}
-
-button {
+  }
+  
+  button {
     background-color: #8f4599;
-    color: rgb(255, 255, 255);
+    color: #fff;
     padding: 12px 24px;
     border: none;
     cursor: pointer;
@@ -77,22 +78,21 @@ button {
     border-radius: 8px;
     font-size: 16px;
     max-width: 100%;
-}
-
-  button:button:hover {
+    transition: background 0.3s ease;
+  }
+  button:hover {
     background-color: #45a049;
-}
-
-
-#particles-js {
+  }
+  
+  #particles-js {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: -1; /* fundo */
+    z-index: -1;
     top: 0;
     left: 0;
-}
-
+  }
+  
   .photo-gallery {
     display: flex;
     gap: 10px;
@@ -100,7 +100,6 @@ button {
     flex-wrap: wrap;
     margin: 20px 0;
   }
-  
   .photo-gallery img {
     width: 100px;
     height: 100px;
@@ -109,65 +108,53 @@ button {
     box-shadow: 0 4px 12px rgba(255, 0, 128, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
   .photo-gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
   }
-
-    @media (min-width: 700px) {
-    :root {
-      --bg-url: url(/img/bg-mobile-light.jpg);
-      .container {
-        padding: 15px;  /* Menos padding para telas pequenas */
-      }
-    
-      h1 {
-        font-size: 1.5rem;  /* Ajusta o tamanho do título */
-      }
-    
-      p {
-        font-size: 1rem;  /* Ajusta o tamanho do parágrafo */
-      }
-    
-      button {
-        font-size: 1rem;  /* Ajusta o tamanho do botão */
-      }
-    }
-    }
-    .message-box {
-        width: 90%;
-        max-width: 500px;
-        margin: 30px auto;
-        background-color: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* sombra leve */
-        display: none;
-        text-align: center;
-    }
-    #revealedMessage {
-        font-size: 18px;
-        color: #222;
-        line-height: 1.5;
-        word-break: break-word;
-    }
-    .footer {
-        text-align: center;
-        padding: 10px 10px;
-        font-size: 0.9rem;
-        color: #fff;
-        backdrop-filter: blur(4px);
-        margin-top: 40px;
-        border: none;        /* remove qualquer borda */
-        box-shadow: none;    /* sem sombra */
-      }
-      .footer a {
-        color: #ff69b4;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      .footer ion-icon {
-        vertical-align: middle;
-        font-size: 1.2rem;
-      }
+  
+  .message-box {
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: none;
+    text-align: center;
+  }
+  #revealedMessage {
+    font-size: 18px;
+    color: #222;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #fff;
+    backdrop-filter: blur(4px);
+    margin-top: 40px;
+    border: none;
+    box-shadow: none;
+  }
+  .footer a {
+    color: #ff69b4;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .footer ion-icon {
+    vertical-align: middle;
+    font-size: 1.2rem;
+  }
+  .photo-gallery img.zoomed {
+    transform: scale(1.5);
+    transition: transform 0.3s ease;
+    z-index: 10;               /* garante que fique acima */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    position: relative;        /* para z-index funcionar */
+  }
+  

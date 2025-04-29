@@ -56,4 +56,21 @@ btn.addEventListener('click', () => {
     }
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+  const images = document.querySelectorAll('.photo-gallery img');
+
+  images.forEach(img => {
+    img.style.cursor = 'pointer';  // dá dica ao usuário que é clicável
+
+    img.addEventListener('click', () => {
+      // adiciona classe que faz zoom
+      img.classList.add('zoomed');
+
+      // depois de 2s, remove para voltar ao normal
+      setTimeout(() => {
+        img.classList.remove('zoomed');
+      }, 2000);
+    });
+  });
+});
   
