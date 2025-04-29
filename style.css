@@ -4,13 +4,22 @@
     --bg-url: url(./img/bg-mobile-light.jpg);
     --dark-bg: #212529;
 }
+html, body {
+    height: 100%;  /* Garantir que a página ocupe toda a altura da tela */
+    margin: 0;  /* Remover margens padrão do navegador */
+    padding: 0;  /* Remover padding */
+    overflow-x: hidden;  /* Evitar rolagem horizontal */
+  }
 
 body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;  /* Organiza o conteúdo na vertical */
+    min-height: 100%;  /* Garante que o conteúdo ocupe pelo menos a altura da tela */
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', sans-serif;
-   /* background: #0d0d0d;  */
-   background: var(--bg-url) no-repeat top center/cover;
+    background: var(--bg-url) no-repeat top center/cover;
     min-height: 100vh;
     overflow: hidden;
     display: flex;
@@ -20,31 +29,23 @@ body {
     color: #eaeaea;
   }
   .container {
-    width: 100%;
-    max-width: 588px;
-    margin: 56px auto 0px;
-    padding: 0 24px;
+    width: 100%;  /* Garantir que a largura ocupe 100% da tela */
+    max-width: 90%; /* Limite máximo de 90% para evitar que ultrapasse nas telas pequenas */
+    margin: 80px auto 0;
+    padding: 20px;  /* Menos padding para dispositivos pequenos */
     border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 90%;
-    width: 400px;
     z-index: 1;
     position: relative;
     color: #838181;
-    background: #7c7c7c;
-  } 
-  .container {
-      position: relative; /* garante que fique acima do fundo */
-      z-index: 1; /* fica na frente */
-      max-width: 500px;
-      margin: 80px auto;
-      background: rgb(252, 252, 252);
-      padding: 40px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+    background-color: rgba(255, 255, 255, 0.85);
+    word-wrap: break-word;  /* Quebra palavras longas para não cortar o texto */
+    
+  }
+  h1, p, button {
+    word-wrap: break-word;  /* Assegura que o texto não estoure nas telas menores */
+  }
 
 h1 {
     color: #ff0080;
@@ -115,8 +116,24 @@ button {
 
     @media (min-width: 700px) {
     :root {
-      --bg-url: url(/img/bg-desktop-light.jpg);
-    }}
+      --bg-url: url(/img/bg-mobile-light.jpg);
+      .container {
+        padding: 15px;  /* Menos padding para telas pequenas */
+      }
+    
+      h1 {
+        font-size: 1.5rem;  /* Ajusta o tamanho do título */
+      }
+    
+      p {
+        font-size: 1rem;  /* Ajusta o tamanho do parágrafo */
+      }
+    
+      button {
+        font-size: 1rem;  /* Ajusta o tamanho do botão */
+      }
+    }
+    }
     .message-box {
         width: 90%;
         max-width: 500px;
@@ -134,3 +151,28 @@ button {
         line-height: 1.5;
         word-break: break-word;
     }
+    .footer {
+        text-align: center;
+        padding: 20px 10px;
+        font-size: 0.9rem;
+        color: #ffffff; /* leve transparência */
+        backdrop-filter: blur(4px); /* efeito fosco sutil */
+        margin-top: 40px;
+        border-radius: 10px;
+      }
+      
+      .footer a {
+        color: #ff69b4;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      
+      .footer a:hover {
+        text-decoration: underline;
+      }
+      
+      .footer ion-icon {
+        vertical-align: middle;
+        color: #ff69b4;
+        font-size: 1.2rem;
+      }
